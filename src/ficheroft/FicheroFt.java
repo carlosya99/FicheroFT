@@ -77,4 +77,39 @@ public class FicheroFt {
         }
         catch(java.io.IOException ioex){}
     }
+    
+    public static void añadirDatos(String archivo) throws IOException {
+        try{
+            FileReader fr = new FileReader(archivo);
+            BufferedReader entrada = new BufferedReader(fr);
+               //Metodo caracter a caracter
+            int contador = 0;
+            char c;
+            int caracter = entrada.read();
+            while(caracter != -1){
+                c= (char) caracter;
+                System.out.print(c);
+                contador = contador + 1;
+                caracter = entrada.read();
+            }
+            System.out.println("\n Tamaño del fichero: " + contador);
+            
+            entrada.close();   
+        }
+        catch(java.io.FileNotFoundException fnfex){
+            System.out.println("Archivo no encontrado" + fnfex);
+        }
+        
+        try{
+            FileWriter fw = new FileWriter(archivo);
+            BufferedWriter entrada = new BufferedWriter(fw);
+            .seek( archivo.length() );      
+        }
+        catch(java.io.FileNotFoundException fnfex){
+            System.out.println("Archivo no encontrado" + fnfex);
+        }
+        
+        
+        catch(java.io.IOException ioex){}
+    }
 }
